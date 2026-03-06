@@ -17,7 +17,7 @@ const register = asyncHandler(async (request, response) => {
 
   response.cookie("token", token, {
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: "lax",
   });
 
@@ -40,7 +40,7 @@ const login = asyncHandler(async (request, response) => {
   );
   response.cookie("token", token, {
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: "lax",
   });
 
@@ -52,9 +52,9 @@ const login = asyncHandler(async (request, response) => {
 });
 
 const logout = asyncHandler(async (request, response) => {
-  request.session.destroy();
+  
 
-  response.clearCookie("flowpilot.sid");
+  response.clearCookie("token");
 
   response.status(200).json({
     success: true,
