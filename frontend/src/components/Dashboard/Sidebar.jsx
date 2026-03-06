@@ -1,8 +1,11 @@
 // ModernSidebar.jsx
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = ({openModal,setPage}) => {
   const [active, setActive] = useState("Sessions");
+  const user=useSelector(state=>state.user.name);
+  
     function handleAddSession(){
         setActive("New Session");
         openModal();
@@ -104,10 +107,10 @@ const Sidebar = ({openModal,setPage}) => {
       <div className="px-4 py-6 border-t border-gray-800">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center font-bold text-white">
-            P
+            {user[0].toUpperCase()}
           </div>
           <div>
-            <p className="font-medium">Prajwal Jadhav</p>
+            <p className="font-medium">{user}</p>
             <p className="text-gray-400 text-sm">Admin</p>
           </div>
         </div>
