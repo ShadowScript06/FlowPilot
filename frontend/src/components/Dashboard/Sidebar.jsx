@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const Sidebar = ({openModal,setPage}) => {
   const [active, setActive] = useState("Sessions");
   const user=useSelector(state=>state.user.name);
-  
+  console.log(user);
     function handleAddSession(){
         setActive("New Session");
         openModal();
