@@ -18,7 +18,7 @@ const register = asyncHandler(async (request, response) => {
   response.cookie("token", token, {
     httpOnly: true,
     secure: true,
-    sameSite: "lax",
+    sameSite: "none",
   });
 
   response.status(200).json({
@@ -41,7 +41,7 @@ const login = asyncHandler(async (request, response) => {
   response.cookie("token", token, {
     httpOnly: true,
     secure: true,
-    sameSite: "lax",
+    sameSite: "none",
   });
 
   response.status(200).json({
